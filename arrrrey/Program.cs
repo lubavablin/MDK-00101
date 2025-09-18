@@ -11,7 +11,7 @@ namespace arrrrey
         static void Main(string[] args)
         {
             string[] array = new string[3] {"pac","git","tic"};
-           
+            array[1] = "Vay"; 
         }
     }
 }
