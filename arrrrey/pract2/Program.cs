@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace pract2
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Random random = new Random();
             int n = 4000;
