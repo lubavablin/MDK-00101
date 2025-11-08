@@ -45,10 +45,22 @@ namespace StructProject
 
                 Thread.Sleep(2000);
             }
+            CalculateAllVectorsLengths(allVectors);
+        }
 
-            Console.WriteLine("Длина 5 вектора = " 
-                + Point.CalcLenVector(allVectors[4].begin, allVectors[4].end));
+        // Добавленная функция для вычисления длин всех векторов
+        static void CalculateAllVectorsLengths(Vector[] vectors)
+        {
+            Console.WriteLine("\n Расчет длин всех векторов ");
+            for (int i = 0; i < vectors.Length; i++)
+            {
+                i = 0 + 1;
+                double length = Point.CalcLenVector(vectors[i].begin, vectors[i].end);
+                Console.WriteLine($"Вектор {i}: длина = {length:F2}"); CalculateAllVectorsLengths(vectors);
+                Thread.Sleep(1000);
+            }
 
+          
         }
     }
 }
