@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace praktika
@@ -7,8 +8,7 @@ namespace praktika
     {
         static void Main()
         {
-            ///вводим  массив с клавиатуры
-            Console.WriteLine("Введите колличество элементов массива: ");
+            Console.WriteLine("Введите количество элементов массива: ");
             int n = int.Parse(Console.ReadLine());
             int[] arr = new int[n];
             Console.WriteLine("Введите элементы массива");
@@ -19,8 +19,21 @@ namespace praktika
 
             // Вывод массива на экран
             Console.WriteLine("Введенный массив: " + string.Join(" ", arr));
-            /// находим повторяющие элементы массива
-            bool hasDuplicates = arr.Length != arr.Distinct().Count();
+
+            // Проверка на дубликаты с помощью HashSet
+            bool hasDuplicates = false;
+            HashSet<int> uniqueElements = new HashSet<int>();
+
+            foreach (int element in arr)
+            {
+                if (uniqueElements.Contains(element))
+                {
+                    hasDuplicates = true;
+                    break;
+                }
+                uniqueElements.Add(element);
+            }
+
             if (hasDuplicates)
             {
                 Console.WriteLine("В массиве есть одинаковые элементы");
@@ -29,6 +42,7 @@ namespace praktika
             {
                 Console.WriteLine("В массиве нет одинаковых элементов");
             }
+        
         }
     }
 }

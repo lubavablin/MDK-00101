@@ -19,13 +19,17 @@ namespace practika2
                 num[i] = random.Next(1, 5001);
             }
             /// Количество пар находим
-            int pairsCount = n / 2 - 1;
+            int pairsCount = (n - 1) / 2;  // Для 4000 элементов: (4000-1)/2 = 1999 пар
             int[] sum = new int[pairsCount];
-            for (int i = 0, j = 0; i < pairsCount; i++, j += 2)
+
+            for (int i = 0; i < pairsCount; i++)
             {
-                sum[i] = num[i] + num[j + 2];
+                int index1 = i * 2;      // первый элемент пары (четная позиция)
+                int index2 = i * 2 + 2;  // второй элемент пары (следующая четная позиция)
+                sum[i] = num[index1] + num[index2];
             }
-            /// выводим результат
+
+            // выводим результат
             Console.WriteLine("[" + string.Join(",", sum) + "]");
         }
     }
