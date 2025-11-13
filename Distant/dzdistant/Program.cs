@@ -22,7 +22,7 @@ namespace SimplePhoneShop
     {
         static void Main()
         {
-            Console.WriteLine("📱 АНАЛИЗ ПРОДАЖ ТЕЛЕФОНОВ");
+            Console.WriteLine(" АНАЛИЗ ПРОДАЖ ТЕЛЕФОНОВ");
             Console.WriteLine("===========================");
 
             // Создаем список продаж
@@ -30,7 +30,7 @@ namespace SimplePhoneShop
 
             // а) Общая сумма за январь 2024
             decimal totalMoney = CalculateTotalMoney(allSales);
-            Console.WriteLine($"💰 Общая выручка: {totalMoney} руб.");
+            Console.WriteLine($"Общая выручка: {totalMoney} руб.");
 
             // б) Самый популярный и непопулярный телефон
             FindPopularPhones(allSales);
@@ -123,8 +123,8 @@ namespace SimplePhoneShop
                 }
             }
 
-            Console.WriteLine($"🏆 Самый продаваемый: {bestPhone} ({maxCount} шт.)");
-            Console.WriteLine($"📉 Меньше всего продаж: {worstPhone} ({minCount} шт.)");
+            Console.WriteLine($" Самый продаваемый: {bestPhone} ({maxCount} шт.)");
+            Console.WriteLine($" Меньше всего продаж: {worstPhone} ({minCount} шт.)");
         }
 
         // в) Ищем два самых прибыльных телефона
@@ -166,7 +166,7 @@ namespace SimplePhoneShop
                 }
             }
 
-            Console.WriteLine("\n🎯 Два самых прибыльных телефона:");
+            Console.WriteLine("\n Два самых прибыльных телефона:");
             for (int i = 0; i < 2 && i < sortedPhones.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {sortedPhones[i]} - {phoneMoney[sortedPhones[i]]} руб.");
