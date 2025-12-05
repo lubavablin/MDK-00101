@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B151E0F7-1285-456E-9CA4-B227E5564A61}</ProjectGuid>
+    <ProjectGuid>{FBD0C52C-EA96-4595-9FBE-10B275F2DE1D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Zadacha1._1</RootNamespace>
-    <AssemblyName>Zadacha1.1</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <RootNamespace>Task_1._1</RootNamespace>
+    <AssemblyName>Task_1._1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -43,10 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Employee.cs" />
     <Compile Include="FixedSalaryEmployee.cs" />
+    <Compile Include="FreelancerEmployee.cs" />
     <Compile Include="HourlySalaryEmployee.cs" />
-    <Compile Include="ISystemAccess.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

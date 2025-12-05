@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанные с этой сборкой.
-[assembly: AssemblyTitle("Zadacha1.1")]
+[assembly: AssemblyTitle("Task_1._1")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Zadacha1.1")]
+[assembly: AssemblyProduct("Task_1._1")]
 [assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID представляет идентификатор typelib, если этот проект доступен из модели COM
-[assembly: Guid("b151e0f7-1285-456e-9ca4-b227e5564a61")]
+[assembly: Guid("fbd0c52c-ea96-4595-9fbe-10b275f2de1d")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //
