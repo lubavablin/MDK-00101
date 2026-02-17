@@ -14,7 +14,7 @@ namespace ClassLibrery.Models
         public MemoryUserModel()
         {
             users.Add(new User { Login = "abc", Password = "123", Name = " Vasily" });
-            users.Add(new User { Login = "klm", Password = "567", Name = " KirillDura" });
+            users.Add(new User { Login = "klm", Password = "567", Name = " Kirill" });
             users.Add(new User { Login = "qqq", Password = "321", Name = " Gosha" });
         }
         public bool Register(User user)

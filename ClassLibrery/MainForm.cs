@@ -1,4 +1,5 @@
 ﻿using ClassLibrery.Models;
+using ClassLibrery.ModelViews;
 using ClassLibrery.Presents;
 using ClassLibrery.Views;
 using System;
@@ -20,8 +21,13 @@ namespace ClassLibrery
             InitializeComponent();
             UserTableView1 tableView = new UserTableView1();
             Controls.Add(tableView);
-            tableView.Dock = DockStyle.Top;
-            UserPresents user = new UserPresents(new MemoryUserModel(), tableView);
+            tableView.Dock = DockStyle.Fill;
+            UserPresenter user = new UserPresenter(new MemoryUserModel(), tableView);
+        }
+
+        private void RemoveButton_Click(object sender, EventArgs e)
+        {
+          //  List<User> selectedUsers = IUserView.
         }
     }
 }
