@@ -14,7 +14,7 @@ namespace LR_3
         public decimal TotalCost => Material?.PricePerUnit * Quality ?? 0;
         public override string ToString()
         {
-            return $"{Part.Name} - {Material.Name}: {Quality} шт. = {TotalCost:C}";
+            return $"{Part.Name} - {Material.Name}: {Quality} шт. = {TotalCost:C}"; 
         }
 
     }
