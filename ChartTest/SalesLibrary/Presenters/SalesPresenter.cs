@@ -38,8 +38,7 @@ namespace SalesLibrary.Presenters
 
         public double GetProfitPercentByItem(Item selectedItem)
         {
-            return ProfitAnalyzer.CalculateProfitPercentByItem(selectedItem.Name,
-                                                               model_);
+            return Math.Round(ProfitAnalyzer.CalculateProfitPercentByItem(selectedItem.Name, model_), 2); 
         }
     }
 }
