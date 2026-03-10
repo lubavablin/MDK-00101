@@ -1,5 +1,12 @@
 ﻿using LiveCharts;
+using LiveCharts.WinForms;
 using LiveCharts.Wpf;
+using SalesLibrary;
+using SalesLibrary.Analysis;
+using SalesLibrary.Presenters;
+using SalesLibrary.Views;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Windows.Media;
 
@@ -7,74 +14,29 @@ namespace ChartTest
 {
     public partial class MainForm : Form
     {
-
+        private SalesPresenter presenter_;
         void FillCartesianChart()
         {
-            LineSeries series = new LineSeries
+            ItemsList.DataSource = presenter_.GetAllItems();
+            ItemsList.DisplayMember = "Name";
+            if (ItemsList.Items.Count > 0)
             {
-                Title = "Продажи",
-                Values = new ChartValues<int> { 10, 15, 25, 23, 25, 22 },
-
-                Stroke = new SolidColorBrush(Colors.Pink),
-                StrokeThickness = 2,
-
-                PointGeometry = DefaultGeometries.Circle,
-                PointGeometrySize = 7,
-
-                Fill = new LinearGradientBrush(
-                    System.Windows.Media.Color.FromArgb(123, 01, 160, 243),
-                    System.Windows.Media.Color.FromArgb(40, 33, 150, 243),
-                    90)
-            };
-
-            cartesian.Series = new SeriesCollection { series, /*series_2, series_3*/ };
-
-            /// Ось Y
-            cartesian.AxisY.Add(new Axis
-            {
-                Foreground = System.Windows.Media.Brushes.Black,
-                LabelFormatter = value => value.ToString("N0"),
-
-                Separator = new Separator
-                {
-                    Stroke = new SolidColorBrush(Color.FromArgb(40, 0, 0, 0)),
-                    StrokeThickness = 1
-                },
-
-                MaxValue = 30,
-                MinValue = 1
-            }              
-            );
-
-
-            /// Ось X
-            cartesian.AxisX.Add(new Axis
-            {
-                Foreground = System.Windows.Media.Brushes.Black,
-                Labels = new[] { "Янв", "Фев", "Мар", "Апр", "Май", "Июн" },
-
-                Separator = new Separator
-                {
-                    IsEnabled = false,
-                },
+                presenter_.ShowSalesByItem(((Item)ItemsList.Items[0]).Name);
             }
-            );
         }
 
         void FillAngular()
         {
-            angular.Value = 23;
-            angular.FromValue = 0;
+            angular.FromValue = 40;
             angular.ToValue = 100;
 
-            angular.TicksForeground = Brushes.Gray;
-            angular.NeedleFill = Brushes.DarkBlue;
+            angular.TicksForeground = Brushes.HotPink;
+            angular.NeedleFill = Brushes.Black;
         }
 
         void FillSolid()
         {
-            solid.Value = 40;
-            solid.From = 0;
+            solid.From = 60;
             solid.To = 100;
             solid.LabelFormatter = value => value + "%";
         }
@@ -82,11 +44,66 @@ namespace ChartTest
         {
             InitializeComponent();
 
+            presenter_ = new SalesPresenter(new List<ISalesView> { cartesian });
+
             FillCartesianChart();
 
             FillAngular();
 
             FillSolid();
+
+
+            FillPieChart();
+
+        }
+
+        private void ItemsList_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            Item selectedItem = ((Item)(ItemsList.SelectedItem));
+            if(selectedItem == null)
+            {
+                return;
+            }
+
+            presenter_.ShowSalesByItem(selectedItem.Name);
+            double percent = Math.Round(
+                presenter_.GetProfitPercentByItem(selectedItem), 2);
+
+            angular.Value = percent;
+            solid.Value = percent;
+        }
+
+        private void angular_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        {
+
+        }
+
+        private void cartesian_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        {
+
+        }
+
+        private void pieChart1_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        {
+
+        }
+        void FillPieChart()
+        {
+            pieChart1.Series = new SeriesCollection
+    {
+        new PieSeries
+        {
+            Title ="Мальчиков",
+            Values = new ChartValues<double>{40},
+        },
+        new PieSeries
+        {
+            Title ="Девочек",
+            Values = new ChartValues<double>{60},
+        }
+
+    };
+            pieChart1.LegendLocation = LegendLocation.Bottom;
         }
     }
 }
