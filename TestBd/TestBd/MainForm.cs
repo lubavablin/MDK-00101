@@ -43,6 +43,12 @@ namespace TestBd
             DataGridViewRow rows = usersDataGridView.SelectedRows[0];
             User user = rows.DataBoundItem as User;
             loader.DeleteUser(user.Login);
+            usersDataGridView.Refresh();
+        }
+
+        private void AddUserButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

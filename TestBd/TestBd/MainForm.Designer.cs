@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.usersDataGridView = new System.Windows.Forms.DataGridView();
-            this.AddButton = new System.Windows.Forms.Button();
+            this.AddUserButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
@@ -45,14 +45,15 @@
             this.usersDataGridView.Size = new System.Drawing.Size(800, 150);
             this.usersDataGridView.TabIndex = 0;
             // 
-            // AddButton
+            // AddUserButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(78, 293);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(75, 23);
-            this.AddButton.TabIndex = 1;
-            this.AddButton.Text = "Добавить";
-            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddUserButton.Location = new System.Drawing.Point(78, 293);
+            this.AddUserButton.Name = "AddUserButton";
+            this.AddUserButton.Size = new System.Drawing.Size(75, 23);
+            this.AddUserButton.TabIndex = 1;
+            this.AddUserButton.Text = "Добавить";
+            this.AddUserButton.UseVisualStyleBackColor = true;
+            this.AddUserButton.Click += new System.EventHandler(this.AddUserButton_Click);
             // 
             // DeleteButton
             // 
@@ -80,7 +81,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.DeleteButton);
-            this.Controls.Add(this.AddButton);
+            this.Controls.Add(this.AddUserButton);
             this.Controls.Add(this.usersDataGridView);
             this.Name = "MainForm";
             this.Text = "Form1";
@@ -92,7 +93,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView usersDataGridView;
-        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Button AddUserButton;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button Clear;
     }

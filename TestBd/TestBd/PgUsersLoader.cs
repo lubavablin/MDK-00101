@@ -13,14 +13,14 @@ namespace TestBd
     public class PgUsersLoader
     {
         private BindingList<User> result_ = new BindingList<User>();
-        private const string connectSetting = "Host=192.168.1.48;Username=st50;Password=PG@dmin$;Database=proptest";//не прав
+        private const string connectSetting = "Host=192.168.1.48;Username=postgres;Password=PG@dmin$;Database=test01";
         public BindingList<User> Load()
         {
             try
             {
                 var con = new NpgsqlConnection(connectSetting);
                 con.Open();
-                var sql = "SELECT login,password,name,last_name,age FROM myusers";
+                var sql = "SELECT login,password,name, last_name, age FROM users";
                 var cmd = new NpgsqlCommand(sql, con);
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -66,6 +66,23 @@ namespace TestBd
             {
                 MessageBox.Show(ex.Message);
                 return false;
+            }
+        }
+        /*public bool AddUser(User user)
+        {
+            try
+            {
+                bool addResult = false;
+                var con = new NpgsqlConnection(connectSetting);
+                con.Open();
+                var sql = "INSERT INTO users(login,password,name,last_name, age)VALUES(@login, @password, @name, @last_name, @age)";
+                var cmd = new NpgsqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@login", user.Login);
+                cmd.Parameters.AddWithValue("@password", user.Password);
+                cmd.Parameters.AddWithValue("@name", user.Name);
+                cmd.Parameters.AddWithValue("@last_name", user.Last_name);
+                cmd.Parameters.AddWithValue("@age", user.Age);
+                int execute*/
             }
         }
     }
