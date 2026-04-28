@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace LR_3
 {
@@ -11,14 +9,12 @@ namespace LR_3
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
-            Tests.TestClass.TestFunctionality();
 
             Console.WriteLine("\nНажмите любую клавишу для запуска приложения...");
-            Console.ReadKey();
-            Console.Clear();
+            //Console.ReadKey();
+           // Console.Clear();
+
+            // 2. Запускаем форму (строго один раз, как требует WinForms)
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

@@ -12,9 +12,4 @@
 		<PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
 		<PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
 	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\LR 3\LR 3.csproj" />
-		<ProjectReference Include="..\LR_3\LR_project.csproj" />
-	</ItemGroup>
 </Project>
